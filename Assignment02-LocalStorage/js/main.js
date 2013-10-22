@@ -303,7 +303,7 @@ var random = {
 
 
 /* Load my map */
-/* <iframe width='100%' height='400' frameborder='0' src='http://billyryu.cartodb.com/viz/34451448-3b19-11e3-bc2d-05da3ecec6a8/embed_map?title=false&description=false&search=false&shareable=false&cartodb_logo=true&layer_selector=false&legends=false&scrollwheel=true&sublayer_options=1&sql=&sw_lat=40.73533139127659&sw_lon=-74.0002691745758&ne_lat=40.73992444723753&ne_lon=-73.98608565330505'></iframe> */
+/* <iframe width='100%' height='400' frameborder='0' src='http://billyryu.cartodb.com/viz/34451448-3b19-11e3-bc2d-05da3ecec6a8/embed_map?title=false&description=false&search=false&shareable=false&cartodb_logo=true&layer_selector=false&legends=false&scrollwheel=true&sublayer_options=1&sql=&sw_lat=40.71004155038521&sw_lon=-74.05062228441238&ne_lat=40.74679108406981&ne_lon=-73.93715411424637'></iframe> */
 
-var myurl = 'http://billyryu.cartodb.com/viz/34451448-3b19-11e3-bc2d-05da3ecec6a8/embed_map?title=false&description=false&search=false&shareable=false&cartodb_logo=true&layer_selector=false&legends=false&scrollwheel=true&sublayer_options=1&sql=&sw_lat=40.73533139127659&sw_lon=-74.0002691745758&ne_lat=40.73992444723753&ne_lon=-73.98608565330505'
+var myurl = 'http://billyryu.cartodb.com/viz/34451448-3b19-11e3-bc2d-05da3ecec6a8/embed_map?title=false&description=false&search=false&shareable=false&cartodb_logo=true&layer_selector=false&legends=false&scrollwheel=true&sublayer_options=1&sql=&sw_lat=40.71004155038521&sw_lon=-74.05062228441238&ne_lat=40.74679108406981&ne_lon=-73.93715411424637'
 $('#home iframe').attr('src',myurl);
