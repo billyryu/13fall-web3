@@ -1,0 +1,747 @@
+/*
+var cartodb_accountname = 'billyryu';
+var cartodb_key = "&api_key=c1d5d0a8d7aaf81b5dfd951d3b2ed6574ff7bacf"; 
+var table_name = 'maptest';
+*/
+
+
+
+@import 'normalize.min.css';
+@import 'text.css';
+
+/* `Basic HTML
+----------------------------------------------------------------------------------------------------*/
+
+/*
+html, body {
+	width:100%;
+	height:100%;
+	overflow:hidden;
+	background:url(home-bg-temp.png) repeat;
+	background-color: #f9faf5;
+	margin: 0 auto;
+	font-family: sans-serif;
+	color: #333;
+}
+*/
+
+html,body{ margin:0; padding:0; height:100%; width:100%; }
+
+body {
+  background: #ffffff;
+  color: #333;
+}
+
+p {
+	font-family: sans-serif;
+	font-size: 14px;
+	line-height: 1.6em;
+	color: #666666;
+}
+
+b {
+	font-weight: 500;
+}
+
+p a, p b a {
+	text-decoration: none;
+	color: #666666;
+}
+
+p a:hover, p b a:hover {
+	color:#3faca4;
+}
+
+h1 {
+	font-family: "coolvetica_rgregular",sans-serif;
+	font-size: 70px;
+	text-transform:none;
+}
+
+h2 {
+	margin-top: -10px;
+	padding: 5px 5px 5px 5px;
+	font-family: sans-serif;
+	font-weight: 500;
+	font-size: 10px;
+	text-transform: uppercase;
+	background: #e8e8e8;
+	color:#333333;
+}
+
+h2 a {
+	text-decoration: none;
+	color:#333333;
+}
+
+h2 a:hover {
+	color:#3faca4;
+}
+
+h3 {
+	font-size: 12px;
+	margin-bottom: 6px;
+	font-weight: 200;
+}
+
+.gold {
+	color:#EAC117;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1;
+}
+
+a {
+  color: #06c;
+}
+
+a:hover {
+  color: #c60;
+}
+
+small {
+  font-size: 11px;
+}
+
+/* `Misc Classes
+----------------------------------------------------------------------------------------------------*/
+
+.align_center {
+  text-align: center;
+}
+
+.align_right {
+  text-align: right;
+}
+
+/* `Data Table
+----------------------------------------------------------------------------------------------------*/
+
+.data,
+.data th,
+.data td {
+  border-style: solid;
+  border-color: #ddd;
+}
+
+.data {
+  border-width: 0 1px 1px;
+  width: 100%;
+}
+
+.data caption {
+  padding: 0 10px 5px;
+  text-transform: uppercase;
+}
+
+.data th,
+.data td {
+  border-top-width: 1px;
+  padding: 5px 10px;
+}
+
+.data th {
+  white-space: nowrap;
+}
+
+.data thead th {
+  background: #eee;
+  font-weight: bold;
+  text-shadow: #fff 0 1px 0;
+}
+
+.data tbody th {
+  width: 1px;
+}
+
+.data tr th:first-child {
+  text-align: right;
+}
+
+/* `Code
+----------------------------------------------------------------------------------------------------*/
+
+pre,
+code {
+  font-size: 12px;
+  font-family: Menlo, Courier, monospace;
+}
+
+pre,
+.notice {
+  background: #ffe;
+  border: 1px solid;
+  border-color: #eed #ccb #bba #ddc;
+  overflow: auto;
+  padding: 10px 0 10px 10px;
+}
+
+* html pre {
+  overflow: hidden;
+  width: 97%;
+}
+
+code {
+  background: #ff9;
+  padding: 0 2px;
+}
+
+
+
+/* ---------- pages ---------- */
+
+#home { 
+    display:block; /* don't hide */
+}
+
+.page {
+    display:none; /* hidden initially */
+    /* position:fixed; */
+    top:0; bottom:0;
+    left:0; right:0;
+    width:100%; height:100%;
+    padding-top:3em; /* for nav */
+    background:white;
+    overflow:hidden;
+    padding-top:60px;
+}
+
+/* ---------- iframe ---------- */
+
+iframe { 
+    background:#ccd; /* see something while loading */
+}
+
+/* ---------- notice ---------- */
+
+.notice { 
+    position:fixed; 
+    top:20%; left:0; right:0;
+    padding:2em;
+    color:white;
+    background:rgba(0,0,0,0.5);
+    text-align:center;
+}
+
+
+/* ---------- nav ---------- */
+
+header nav { 
+   position:fixed; 
+   top:0; left:0; right:0;
+   background:none;
+   z-index:101; /* in front of pages */
+}
+
+header nav a {
+   float:left;
+   width:33%;
+   padding:.5em 0;
+   color:white;
+   background:#525;
+   text-align:center;
+   text-decoration:none;
+   border:4px solid transparent;
+   border-width:4px 0;
+}
+
+header nav a:first-child { width:34%; }
+
+header nav a:hover { background:rgba(255,0,255,0.5); }
+
+header nav a.active { border-bottom-color:rgba(255,0,255,0.8); }
+
+
+
+/* `Billy's Code
+----------------------------------------------------------------------------------------------------*/
+
+@font-face {
+    font-family: 'coolvetica_rgregular';
+    src: url('../fonts/coolvetica_rg/coolvetica_rg-webfont.eot');
+    src: url('../fonts/coolvetica_rg/coolvetica_rg-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/coolvetica_rg/coolvetica_rg-webfont.woff') format('woff'),
+         url('../fonts/coolvetica_rg/coolvetica_rg-webfont.ttf') format('truetype'),
+         url('../fonts/coolvetica_rg/coolvetica_rg-webfont.svg#coolvetica_rgregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+/* DIV Sticky */
+.sticky {
+	position:fixed;
+	/* --adjust location -- */
+	/*left: 0px;*/
+	/*top: 0px;*/
+	/*padding: 0 10px 0 10px;*/
+	width: 100%;
+	min-width: 960px;
+	/*background: url(transparent.png) repeat;*/
+	background-color: #ca0000 /* #f8f8f8 */;
+	/* border-bottom: 2px solid #d8d8d8; */
+}
+
+
+/* Header */
+header {
+	list-style-type:none;
+	overflow:hidden;
+	width:100%;
+	z-index: 9999;
+	height: 60px;
+	
+	opacity:1;
+	filter:alpha(opacity=100); /* For IE8 and earlier */
+}
+
+/*
+#headerbar {
+	border-bottom: 1px solid #a7a9ac;
+}
+*/
+
+
+/* Header - Face Icon */
+.face_rollover a{
+   display: block;
+   margin: auto auto auto auto;
+   cursor: pointer;
+   outline: transparent solid 0px;
+}
+
+/* Logo - Typography */
+#logo a {
+	background: url('../images/truktraqlogo.png') no-repeat left top;
+	/*width:200px;
+	height:75px;*/
+	width:128px;
+	height:40px;
+	position:relative;
+	top:12px;
+	float:left;
+}
+
+#logo a:hover{
+   background-position: right 0px;
+   /* transition: all 0.15s ease-in-out;
+	-webkit-transition: all 0.15s ease-in-out;
+    -moz-transition: all 0.15s ease-in-out;
+    -o-transition: all 0.15s ease-in-out; */
+}
+
+#space {
+	padding-top:90px;
+}
+
+#space-about {
+	padding-top:60px;
+}
+
+#space-home {
+	padding-top:20px;
+}
+
+#space-footer {
+	padding-top:10px;
+}
+
+
+/* Top Menu - Sidebar */
+
+ul, li {
+	list-style-type: none;
+	text-decoration: none;
+}
+
+#menu {
+	position: relative;
+	top:-40px;
+	padding-right: 20px;
+	float:right;
+}
+
+#nav {
+	position: relative;
+	top:6px;
+	float:right;
+}
+
+#nav a, #device-top {
+	-webkit-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+}
+
+#nav a {
+	border: 0px solid #e5e5e5;
+	/* letter-spacing: 2px; */
+	/* font-family: "brandon-grotesque",sans-serif; */
+	font-style: normal;
+	text-transform: capitalize;
+	/* font-weight: 500; */
+	font-size:12px;
+	color:#ffffff;
+	padding: 114px 15px 114px 15px;
+	/* margin-right: -30px; */
+	text-decoration:none;
+	/*
+-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+*/
+}
+
+#nav a:link {
+	text-decoration:none !important;
+}
+
+#nav a:visited {
+	text-decoration:none !important;
+}
+
+#nav a:hover {
+	border: 0px solid #e5e5e5;
+	/*
+	-webkit-box-shadow: 0px 7px 12px rgba(50, 50, 50, 0.2);
+	-moz-box-shadow:    0px 7px 12px rgba(50, 50, 50, 0.2);
+	box-shadow:         0px 7px 12px rgba(50, 50, 50, 0.2);
+	*/
+	color: #ffffff;
+	background-color: #ff1919;
+}
+
+#nav a:active {
+	border: 0px solid #e5e5e5;
+	/*
+	-webkit-box-shadow: 0px 7px 12px rgba(50, 50, 50, 0.2);
+	-moz-box-shadow:    0px 7px 12px rgba(50, 50, 50, 0.2);
+	box-shadow:         0px 7px 12px rgba(50, 50, 50, 0.2);
+	*/
+	color: #ffffff;
+	background-color: #920000;
+}
+
+#nav .selected {
+	border: 0px solid #e5e5e5;
+	color: #ffffff;
+	background-color: #920000;
+}
+				
+#nav ul {
+	float: left !important;
+}
+
+#nav li {
+	display: inline-block;
+}
+
+/* DIV Sticky */
+.sticky-footer {
+	position:relative;
+	bottom: 0px;
+	width: 100%;
+	/*background: url(transparent.png) repeat;*/
+	background-color: #f8f8f8;
+	border-bottom: 2px solid #d8d8d8;
+}
+
+/* Footer */
+footer {
+	padding-top: 15px;
+	padding-bottom: 11px;
+	list-style-type:none;
+	overflow:hidden;
+	color: #444444;
+	background-color: #f8f8f8;
+	width: 100%;
+}
+
+footer a {
+	color: #444444;
+	text-decoration: none;
+}
+
+.footer_p {
+	font-family: sans-serif;
+	font-size: 0.8em;
+	font-weight: 100;
+	line-height: 1.6em;
+}
+
+#center_footer {
+	margin:0 auto;
+	position:relative;
+	width:intrinsic;
+}
+
+#copyright {
+	position: relative;
+	left:0;
+}
+
+#copyright a:hover {
+	color:#3faca4;
+}
+
+
+
+/* ---------- info ---------- */
+
+#googlemap {
+	margin-bottom: 15px;
+}
+
+#card-name, #card-info, #local-comments {
+	padding: 20px;
+	background: #f8f8f8;
+	border-right: 2px solid #cccccc;
+	border-bottom: 2px solid #cccccc;
+	margin-bottom: 20px;
+}
+
+.bttn-menu {
+	padding: 20px;
+	background: #fce24f;
+	border-right: 2px solid #e5bc33;
+	border-bottom: 2px solid #e5bc33;
+	margin-bottom: 20px;
+	text-align: center;
+	text-decoration: none;
+}
+
+.bttn-menu a {
+	text-align: center;
+	text-decoration: none;
+}
+
+.bttn-menu a:link, .bttn-menu a:visited {
+	color:#333333;
+}
+
+.bttn-menu a:hover, .bttn-menu a:active {
+	color:#ac0000;
+}
+
+.card-name-title {
+	font-family: "coolvetica_rgregular",sans-serif;
+	font-size: 40px;
+	text-transform:none;
+	line-height: 20px;
+}
+
+.card-name-cat {
+	font-family: "coolvetica_rgregular",sans-serif;
+	font-size: 20px;
+	text-transform:none;
+	color: #ca0000;
+}
+
+.card-address {
+	font-family: sans-serif;
+	font-weight: 200;
+	font-size: 14px;
+	text-transform:none;
+	color: #666666;
+}
+
+.card-info-title {
+	font-family: "coolvetica_rgregular",sans-serif;
+	font-size: 20px;
+	text-transform: uppercase;
+	line-height: 20px;
+	color:#333333;
+}
+
+.card-comment-title {
+	font-family: "coolvetica_rgregular",sans-serif;
+	font-size: 20px;
+	text-transform: uppercase;
+	line-height: 20px;
+	color:#ca0000;
+}
+
+
+
+
+
+
+/* ---------- comment form ---------- */
+
+form { margin-bottom:1em; }
+
+input,
+textarea { 
+    display:block; 
+    margin:.25em 0; 
+    width:90%;
+    border:1px solid #ccc;
+    box-shadow:none;
+    border-radius:3px;
+    padding:.25em;
+}
+
+textarea { 
+    height:50px;
+    resize: vertical; 
+    }
+
+button {
+    margin:.5em 0 0 auto;
+    
+}
+
+
+/* ---------- feed ---------- */
+
+.feed { 
+    height:150px;
+    overflow:auto;
+    border:1px dotted #ddd;
+    margin:1em;
+}
+
+.template {
+    display:none;
+}
+
+
+
+/* ---------- feed ---------- */
+
+#feed {
+	overflow: auto;
+    padding: 20px;
+	background: #f8f8f8;
+	border-right: 2px solid #cccccc;
+	border-bottom: 2px solid #cccccc;
+	margin-bottom: 20px;
+}
+
+
+
+/* ---------- article ---------- */
+
+article {
+    margin:1em 0;
+    padding:1em 0;
+    border-top:1px dashed #333;
+}
+
+.home article {
+    float:left;
+    width:44%; margin-right:5%;
+}
+
+article:hover {
+    background:#fff;
+}
+
+
+
+
+/* ---------- About us ---------- */
+
+
+/* Body 01 */
+#body01 {
+	background-color: #ffd800;
+	padding-top:60px;
+	/*
+padding-left: 20px;
+	padding-right: 20px;
+*/
+	width: 100%;
+	height: 500px;
+}
+
+.app-para {
+	z-index: 1;
+	float:left;
+	position: relative;
+	top:20px;
+}
+
+#app-img-file {
+	background: url('../images/apps1.png') no-repeat right top;
+	background-size:400px auto;
+	width:700px;
+	height:459px;
+	position:relative;
+	top:-330px;
+	float:right;
+	z-index: 1;
+}
+
+
+/* Body 02 */
+#body02 {
+	background: url(../images/6352.jpg) no-repeat center bottom;
+	background-size: 100% auto;
+	padding-top:60px;
+	/*
+padding-left: 20px;
+	padding-right: 20px;
+*/
+	width: 100%;
+	height: 440px;
+}
+
+.app-para2 {
+	z-index: 1;
+	float:left;
+	position: relative;
+	top:-300px;
+}
+
+#app-img-file2 {
+	background: url('../images/apps1.png') no-repeat right top;
+	background-size:400px auto;
+	width:700px;
+	height:459px;
+	position:relative;
+	top:-400px;
+	float:right;
+	z-index: 1;
+}
+
+
+/* Body 03 */
+#body03 {
+	background-color: #33c6f1;
+	padding-top:60px;
+	/*
+padding-left: 20px;
+	padding-right: 20px;
+*/
+	width: 100%;
+	height: 500px;
+}
+
+.app-para3 {
+	z-index: 1;
+	float:left;
+	position: relative;
+	top:-30px;
+	right:400px;
+}
+
+#app-img-file3 {
+	background: url('../images/burger.png') no-repeat right top;
+	background-size:400px auto;
+	width:700px;
+	height:459px;
+	position:relative;
+	top:-280px;
+	float:right;
+	z-index: 1;
+}
