@@ -1,33 +1,54 @@
-<?php include('header.php'); ?>
+<!doctype html>
+<html>
+<head>
+	<title>TrukTraq - Find Your Food Truck</title>
+	<link rel="shortcut icon" href="http://www.billyryu.com/favicon.ico" type="image/x-icon" />
+	
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	<link rel="stylesheet" href="/resources/demos/style.css" />
+	<link rel="stylesheet" href="style.css" media="all" />
+	<script>
+		$(function() {
+		var availableTags = [
+		"New York, NY",
+		"Brooklyn, NY",
+		"Queens, NY",
+		"Bronx, NY",
+		"Manhattan, NY",
+		"Staten Island, NY",
+		"New Jersey",
+		"San Diego, CA",
+		"San Francisco, CA",
+		"Los Angeles, CA",
+		"San Jose, CA",
+		"Austin, TX",
+		"Philadelphia, PA",
+		"Chicago, IL",
+		"Cincinnati, OH"
+		];
+		$( "#tags" ).autocomplete({
+		source: availableTags
+		});
+		});
+	</script>
+</head>
 
+<body>
+<div id="container">
 
-    <section id="home" class="page">
-    <!-- <section id="home"> -->
-        <iframe width='100%' height='100%' frameborder='0' src='http://billyryu.cartodb.com/viz/34451448-3b19-11e3-bc2d-05da3ecec6a8/embed_map?title=false&description=false&search=false&shareable=false&cartodb_logo=true&layer_selector=false&legends=false&scrollwheel=true&sublayer_options=1&sql=&sw_lat=40.71004155038521&sw_lon=-74.05062228441238&ne_lat=40.74679108406981&ne_lon=-73.93715411424637'></iframe>
-        <!--
-<p>Locations in NYC!</p>
-        <section class="feed">
-            <ul>
-                <li class="template"><img /><span></span>: <strong></strong> <em></em></li>
-            </ul>
-        </section>
--->
-
-    </section><!-- END #home -->
-    
-<div class="container_12">
-
-    <!--
-<div class="notice">loading...</div>
-
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
-
-    <script src="js/main.js"></script>
--->
-    
-</div><!-- end .container_12 -->
-
-
-
-<?php include('footer.php'); ?>
+	<div class="temp">
+		<img class="temp_img" src="billy_3d.png" />
+		<br />
+			<div class="ui-widget">
+				<input id="tags" placeholder="Where are you at?" />
+			</div>
+			
+		<br />
+		<a href="result/index.php"><button>Search Trucks!</button></a>
+	</div>
+		
+</div><!-- end #container -->
+</body>
+</html>

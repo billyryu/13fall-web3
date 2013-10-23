@@ -1,0 +1,75 @@
+/* temp style sheet */
+
+html, body {
+	width:100%;
+	height:100%;
+	overflow:hidden;
+	/* background:url(home-bg-temp.png) repeat; */
+	background-color: #ffffff;
+	margin: 0 auto;
+	font-family: sans-serif;
+}
+
+#container {
+	width:960px;
+	margin: 0 auto;
+}
+
+@font-face {
+    font-family: 'mlb_giantsregular';
+    src: url('font/mlbgiants/mlbgiant.eot');
+    src: url('font/mlbgiants/mlbgiant.eot?#iefix') format('embedded-opentype'),
+         url('font/mlbgiants/mlbgiant.woff') format('woff'),
+         url('font/mlbgiants/mlbgiant.ttf') format('truetype'),
+         url('font/mlbgiants/mlbgiant.svg#mlb_giantsregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GothamMediumRegular';
+    src: url('font/gotham_medium/gotham-medium-webfont.eot');
+    src: url('font/gotham_medium/gotham-medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('font/gotham_medium/gotham-medium-webfont.woff') format('woff'),
+         url('font/gotham_medium/gotham-medium-webfont.ttf') format('truetype'),
+         url('font/gotham_medium/gotham-medium-webfont.svg#GothamMediumRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.temp {
+	width:552px;
+	height:545px;
+	position:fixed;
+	margin-top:-272px;
+	margin-left:-276px;
+	top:50%;
+	left:50%;
+	/* background:url('home-temp.png'); */
+	text-align: center;
+	font-weight: 100;
+}
+
+.temp_img {
+	width:50%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.temp_title {
+	font-family: GothamMediumRegular;
+	font-size: 2.5em;
+	text-shadow: 2px 2px #999999;
+}
+
+.temp_footer {
+	font-family: sans-serif;
+	font-size: 0.8em;
+	line-height: 1.6em;
+}
+
+.temp_link {
+	text-decoration: none;
+	color: #5cbab3;
+}
